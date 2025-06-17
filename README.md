@@ -19,22 +19,21 @@ To use the `StuckJobAlerter` notebook, you must fill out the parameters associat
 - Note that the parameters values will be fetched via [Databricks Secrets](https://docs.databricks.com/aws/en/security/secrets/). A helper class has been provided for this; refer to the corresponding example notebook here: `./db_secrets/DBSecrets`
 
 ##### `run_duration_threshold_hrs`
-This is the minimum current duration, in hours, for active job runs to fetch.
+- This is the minimum current duration, in hours, for active job runs to fetch.
 
 ##### `workspaces_to_check`
-These are the URLs of the Databricks workspaces to check job runs in. They should be given in a list, in the following form (no need for quotes): 
+- These are the URLs of the Databricks workspaces to check job runs in. They should be given in a list, in the following form (no need for quotes): 
 `[https://myenv.cloud.databricks.com, ...]`
-
 - **Note:** If you run into issues regarding `(Error 403) Cert validation failed. Cross workspace access is denied due to network policies` when inputting multiple workspaces, see [this page](https://community.databricks.com/t5/data-engineering/cross-workspace-rest-api-access-denied-due-to-network-policies/td-p/92890) for how to resolve these via Private Link configuration.
 
 ##### `secret_scope_name`
-This is the secret scope name in the workspace that this notebook/job is run in under which secret keys may be found corresponding to valid authorization tokens (either PAT or internal/OAuth) for the `workspaces_to_check`. 
+- This is the secret scope name in the workspace that this notebook/job is run in under which secret keys may be found corresponding to valid authorization tokens (either PAT or internal/OAuth) for the `workspaces_to_check`. 
 
 ##### `token_secret_names`
-These are the secret keys under `secret_scope_name` corresponding to authorization tokens for the `workspaces_to_check`. This should be given as a list (no need for quotes), with the length and order of the list matching `workspaces_to_check`. E.g. `[token_secret_name1, token_secret_name2, ...]`
+- These are the secret keys under `secret_scope_name` corresponding to authorization tokens for the `workspaces_to_check`. This should be given as a list (no need for quotes), with the length and order of the list matching `workspaces_to_check`. E.g. `[token_secret_name1, token_secret_name2, ...]`
 
 ##### `slack_webhook_secret_name`
-This is the name of the secret key under `secret_scope_name` containing the Slack webhook to use to send alerts.
+- This is the name of the secret key under `secret_scope_name` containing the Slack webhook to use to send alerts.
 - To use the Slack alert message functionality, you will need to set up a Slackbot; see the Slackbot section below for more information.
 
 ### Unit Tests

@@ -119,6 +119,11 @@ except TypeError as te:
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC ### Job Run Retrieval
+
+# COMMAND ----------
+
 # Get info for multiple job runs
 job_runs_lists = job_alerter.get_job_runs(
     active_runs_only=True, older_than_hours=job_params.run_duration_threshold_hrs,

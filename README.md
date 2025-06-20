@@ -12,6 +12,8 @@ This is achieved via a custom class wrapping the Databricks Jobs RESTful API (us
 - Send alert messages via Slack.
 - Use Databrick secrets for credential management.
 
+**Note:** To handle streaming jobs, provide the optional `streaming_tag` argument when instantiating the `JobAlerter` class (see `stuck_job_alerter.py`). Databricks jobs that have this tag (as a key; no value necessary) will be considered "streaming" jobs.
+
 ### Prerequisites
 
 To use the `StuckJobAlerter` notebook, you must fill out the parameters associated with it (listed below). These are visible at the top of the notebook (as `dbutils` widgets) when used interactively, and are pulled from Job parameters when the notebook is used as part of a Databricks Job. Either fill these parameters out via the Databricks Jobs UI or the dbutils widgets at the top of the notebook, depending on if you are running the notebook manually or as part of a job.
